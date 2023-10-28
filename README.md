@@ -1,11 +1,11 @@
-# odin-memory-card
+# Odin Memory Card
 
 Welcome to my new project! I've been using the `readme.md` files less and less on my projects, so I'm starting with this one writing on it.
 
-On this project, which is another practice from The Odin Project, I'm making a very simple memory game. The objective is to apply everything lenarnt until now about `React`, react hooks (`useState` and `useEffect`) and fetching information from an API to make sure I can handle `async` components.
+On this project, which is another practice from The Odin Project, I'm making a very simple memory game. The goal is to apply everything I've  learned so far about `React`, react hooks (`useState` and `useEffect`) and fetching information from an API of my choice to make sure I can handle `async` components.
 
 ## about the game:
-This is a memory card game: the page will show a certain number of images and the player must pick each image just once, but on every pick the cards will be shuffled.
+This is a memory card game: the page will show a certain number of card with different images and the player must choose each image just once, but at each choice the cards will be shuffled.
 
 ## Odin requisites:
 This is what Odin wants for this project:
@@ -25,17 +25,18 @@ This is what Odin wants for this project:
 ## planning:
 I like to write what I need for each of my projects as a list, then decompose each item into smaller requisites, the typical problem solving. I still don't know what theme I want for the cards.
 
-First I should look for APIs to be able to access some type of database that includes image URLs that allow hotlinks. I prefer not to use API keys, I don't know how to hide them yet, but that's not a big problem for such a simple project.
+First I should look for an API to be able to access to a database that includes image URLs that allow hotlinks. I prefer not to use API keys, I don't know how to hide them yet, but that's not a big problem for such a simple project.
 
 ### the game:
-- the player starts picking how much cards they want to see on the board:
+- the player starts the game by choosing how many cards they want to see on the board:
   - a few buttons will appear in the center of the page with predefined numbers
-- a new game starts placing the cards
-- when the player picks a card:
-  - if the card has not been picked and there's still unchosen cards:
+- a new game starts by placing the cards
+- when the player chooses a card:
+  - if the card has not been chosen and there's still unchosen cards:
     - a point is added
     - the cards will shuffle
-  - if the card has been picked or was the last one to pick:
+    - the game will check if it was the last one to be chosen
+  - if the card has been chosen or was the last one to be chosen:
     - the game ends
     - a message appears on screen announcing it:
       - show the results:
@@ -43,7 +44,7 @@ First I should look for APIs to be able to access some type of database that inc
         - high score
       - include a restart button that:
         - removes the cards from the play area
-        - show again the first creen to pick how much cards on the next match
+        - show the first screen again to choose how many cards are in the next match
 
 ### the page:
 - header:
@@ -52,13 +53,13 @@ First I should look for APIs to be able to access some type of database that inc
   - high score
   - light/dark theme button
 - play area with cards:
-  - the cards are placed in a random order
+  - cards are placed in a random order
   - each card contains:
     - an image
     - a name or description
 - accesibility:
   - use `prefers-reduced-motion` for the cards
-  - alt for each card
+  - `alt` for each card
   - allow playing with WASD/arrow keys and Enter/spacebar if possible
 
 ### the code:
@@ -77,26 +78,26 @@ components:
     - game logic and rules
     - API response stored as an array of objects:
       - quantity defined by how many cards the user wants
-    - gameOver `useState` as boolean
+    - `gameOver` `useState` as boolean
     - an empty array for picked cards with `useState`
-  - on start when gameOver is `true`:
-    - ask the user for quantity of cards
+  - on start when `gameOver` is `true`:
+    - ask the user how many cards
     - list as buttons predefined quantities
   - when user starts game:
-    - set gameOver as `false`
-    - a new fetch from the API will run, picking random items
+    - set `gameOver` as `false`
+    - a new fetch from the API will be run, picking random items
     - from fetched values from the API, replace content with a list of cards:
       - each card will have different IDs
       - the image `src` will come from the API response
-      - the card description will come from the API response
+      - the card title or description will come from the API response
       - `onClick`:
         - check if card ID is on the list
-        - if it's on the list:
-          - set gameOver as `true`
+        - if it is on the list:
+          - set `gameOver` as `true`
         - if it's not on the list:
           - add the card ID to the list
-          - randomize cards on screen
-          - if list.length is now equal to quantity of cards:
-            - set gameOver as `true`
+          - shuffle cards on screen
+          - if `list.length` is now equal to the quantity of cards:
+            - set `gameOver` as `true`
 
 I'm pretty sure I'm missing a lot of details here, but this should be enough to start. I'll try to update this `readme.md` with my progress and some thoughts once I have something to show.
