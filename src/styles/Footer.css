@@ -1,0 +1,11 @@
+footer {
+  box-sizing: border-box;
+  width: fit-content;
+  justify-self: end;
+  text-align: end;
+  padding: 4px;
+}
+
+footer p {
+  margin: 0;
+}
