@@ -1,0 +1,30 @@
+#play-area {
+  --card-width: 300px;
+  --card-height: 200px;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(var(--card-width), 1fr));
+  grid-template-rows: repeat( auto-fill, minmax(var(--card-height), 1fr));
+  padding: 8px;
+  gap: 8px;
+  align-items: center;
+  justify-items: center;
+}
+
+.card {
+  display: grid;
+  box-sizing: border-box;
+  width: var(--card-width);
+  height: var(--card-height);
+  box-shadow: 6px 6px 24px rgba(0, 0, 0, .05);
+  padding: 4px;
+  justify-content: center;
+}
+
+.card img {
+  width: 200px;
+  height: 100px;
+}
+
+.card h2 {
+  text-align: center;
+}
