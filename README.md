@@ -101,3 +101,26 @@ components:
             - set `gameOver` as `true`
 
 I'm pretty sure I'm missing a lot of details here, but this should be enough to start. I'll try to update this `readme.md` with my progress and some thoughts once I have something to show.
+
+## update 1
+I tried to come up with a design for the page, but ended with something very basic, but enough to know where to start. Using OpenOffice's Draw, I made some mockups:
+
+![](https://i.imgur.com/S3an1OD.png)
+![](https://i.imgur.com/b91UGJi.png)
+![](https://i.imgur.com/o616yGq.png)
+
+## update 2
+After placing the main components on the page, I started looking for some API I could use for this project, and found one that returns a list of videogame discounts with an image I could use. Maybe not the best API for this kind of project, but I can work with it.
+
+Here's a mockup I made for the cards:
+
+![](https://i.imgur.com/qfCKZcX.png)
+
+But I decided to first make the game playable, so I'm using placeholders. This is what I have for now:
+
+![](https://i.imgur.com/GEOHUHA.png)
+
+It's nothing special and I don't like how slow my progress is, but I think its okay considering I just started learning `React`.
+
+### what's next
+Now I can start working on the game logic. I'm planning to keep all that on the component that holds the cards and the "new game"/"game over" menues. As I'll be working with placeholders, I don't need too much code here. Once it starts working as expected, I can start working with the API. I'm still not sure how I'll manage to make it work, but I'm pretty sure it's pure `useEffect()`, an intimidating but interesting `React` hook.
