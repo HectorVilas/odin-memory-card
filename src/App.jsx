@@ -12,9 +12,20 @@ export default function App() {
   
   return (
     <div id='app'>
-      <Header darkMode={darkMode} />
-      <PlayArea gameOver={gameOver} setHighscore={setHighscore} setDarkMode={setDarkMode} setGameOver={setGameOver} />
-      <Footer score={score} highScore={highScore} darkMode={darkMode} />
+      <Header
+        darkMode={darkMode}
+      />
+      <PlayArea
+        gameOver={gameOver}
+        setHighscore={setHighscore}
+        setDarkMode={setDarkMode}
+        setGameOver={setGameOver}
+      />
+      <Footer
+        score={score}
+        highScore={highScore}
+        darkMode={darkMode}
+      />
     </div>
   )
 }
