@@ -1,4 +1,5 @@
 import '../styles/PlayArea.css'
+import { useState } from 'react'
 
 function DifficultMenu() {
   return (
@@ -10,14 +11,33 @@ function DifficultMenu() {
 
 function Card(props) {
   return(
-    <div id={`card-${props.cardId}`} className='card'>
+    <div id={props.cardId} className='card' onClick={props.clickAction}>
       <img src={props.imgUrl} alt="" />
       <h2>{props.title}</h2>
     </div>
   )
 }
 
-function CardsList() {
+function CardsList(props) {
+  const [chosenCards, setChosenCards] = useState([]);
+
+  function clickAction(e) {
+    const alreadyChosen = chosenCards.includes(e.currentTarget.id)
+
+    if(!alreadyChosen) {
+      const newArray = [...chosenCards]
+      newArray.push(e.currentTarget.id)
+
+      if (newArray.length !== props.cardsQuantity) {
+        setChosenCards(newArray)
+      } else {
+        props.setGameOver(true)
+      }
+    } else {
+      props.setGameOver(true)
+    }
+  }
+  
   const Placeholder = [
     {cardId: 0, imgUrl: 'https://i.imgur.com/ryWkZ8C.png', title: 'card Title 1'},
     {cardId: 1, imgUrl: 'https://i.imgur.com/ryWkZ8C.png', title: 'card Title 2'},
@@ -31,12 +51,13 @@ function CardsList() {
 
   return (
     <>
-      {Placeholder.map((item) =>
+      {Placeholder.sort(() => Math.random() - 0.5).map((item) =>
         <Card
           key={item.cardId}
           cardId={item.cardId}
           imgUrl={item.imgUrl}
           title={item.title}
+          clickAction={clickAction}
         />
       )}
     </>
@@ -44,10 +65,18 @@ function CardsList() {
 }
 
 export default function PlayArea(props) {
-  
+  const [cardsQuantity, setCardsQuantity] = useState(8)
+
   return (
     <div id="play-area">
-      { props.gameOver ? <DifficultMenu /> : <CardsList /> }
+      {
+        props.gameOver
+        ? <DifficultMenu />
+        : <CardsList
+          setGameOver={props.setGameOver}
+          cardsQuantity={cardsQuantity}
+        />
+      }
     </div>
   )
 }
