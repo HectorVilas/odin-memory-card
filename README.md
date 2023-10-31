@@ -124,3 +124,15 @@ It's nothing special and I don't like how slow my progress is, but I think its o
 
 ### what's next
 Now I can start working on the game logic. I'm planning to keep all that on the component that holds the cards and the "new game"/"game over" menues. As I'll be working with placeholders, I don't need too much code here. Once it starts working as expected, I can start working with the API. I'm still not sure how I'll manage to make it work, but I'm pretty sure it's pure `useEffect()`, an intimidating but interesting `React` hook.
+
+## update 3
+I managed to make the game playable (kind of). To make it work I just used a bunch of `useState` to store the chosen cards in an array and stop the game if this array already have a previously chosen card (player loses) or the length of this list is the same as the quantity of cards the player wanted to play (player wins).
+
+If player wins or loses, the parent's `gameOver` value is changed to `false`, so it will remove the cards from the page and replace it with what is going to be the menu.
+
+This is not a big deal, but now I'm thinking with `Reach` logic, which is different from what I made until now with `JavaScript` vanilla, but still making sense and being faster to make.
+
+### what's next
+Now I should make the game menu where the player choses how many cards wants, and another for the game over. I think those two menues should be the same, just changing what it says (a welcome message, a "you win" and a "you lose").
+
+Once I have it ready, I can start replacing the placeholders with the API response. This time I'm gonna need `useEffect`.
