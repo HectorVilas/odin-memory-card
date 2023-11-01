@@ -8,7 +8,7 @@ export default function App() {
   const [score, setScore] = useState(0)
   const [highScore, setHighscore] = useState(0)
   const [darkMode, setDarkMode] = useState(false)
-  const [gameOver, setGameOver] = useState(false)
+  const [gameOver, setGameOver] = useState(true)
   
   return (
     <div id='app'>
@@ -17,6 +17,7 @@ export default function App() {
       />
       <PlayArea
         gameOver={gameOver}
+        highScore={highScore}
         setHighscore={setHighscore}
         setDarkMode={setDarkMode}
         setGameOver={setGameOver}
