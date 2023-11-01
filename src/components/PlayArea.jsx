@@ -41,13 +41,14 @@ function CardsList(props) {
       newArray.push(e.currentTarget.id)
 
       props.setChosenCards(newArray)
+      props.setScore(newArray.length)
+
+      if (newArray.length > props.highScore) props.setHighScore(newArray.length)
       if (newArray.length === props.cardsQuantity) props.setGameOver(true)
     } else {
       props.setGameOver(true)
     }
   }
-  
-
 
   return (
     <>
@@ -78,6 +79,7 @@ export default function PlayArea(props) {
     setCardsQuantity(quantity)
     setChosenCards([])
     props.setGameOver(false)
+    props.setScore(0)
   }
 
   return (
@@ -91,12 +93,16 @@ export default function PlayArea(props) {
           highScore={props.highScore}
           setGameOver={props.setGameOver}
           />
-        : <CardsList
+          : <CardsList
           setGameOver={props.setGameOver}
           cardsQuantity={cardsQuantity}
           cardsList={Placeholder}
           chosenCards={chosenCards}
           setChosenCards={setChosenCards}
+          score={props.score}
+          setScore={props.setScore}
+          highScore={props.highScore}
+          setHighScore={props.setHighScore}
         />
       }
     </div>
