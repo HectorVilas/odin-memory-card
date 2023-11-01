@@ -1,10 +1,23 @@
 import '../styles/PlayArea.css'
 import { useState } from 'react'
 
-function DifficultMenu() {
+function Menu(props) {
+  const isGameWon = props.chosenCards === props.cardsQuantity
+  const isGameStarted = props.cardsQuantity === undefined
+  const menuTitle = isGameStarted ? 'Welcome' : isGameWon ? 'You win' : 'You lose'
+
   return (
-    <div>
-      <p>Difficult menu placeholder</p>
+    <div id='game-menu'>
+      <h2>{menuTitle}</h2>
+      {<p>{`${props.chosenCards} / ${props.cardsQuantity}`}</p>}
+      {<p>{`High score: ${props.highScore}`}</p>}
+      <p>{isGameStarted ? 'How many cards?' : 'Play again?'}</p>
+      <button onClick={() => props.newGame(4)}>4 cards</button>
+      <button onClick={() => props.newGame(8)}>8 cards</button>
+      <button onClick={() => props.newGame(12)}>12 cards</button>
+      <button onClick={() => props.newGame(16)}>16 cards</button>
+      <button onClick={() => props.newGame(20)}>20 cards</button>
+      <button onClick={() => props.newGame(24)}>24 cards</button>
     </div>
   )
 }
@@ -19,20 +32,16 @@ function Card(props) {
 }
 
 function CardsList(props) {
-  const [chosenCards, setChosenCards] = useState([]);
-
+  
   function clickAction(e) {
-    const alreadyChosen = chosenCards.includes(e.currentTarget.id)
+    const alreadyChosen = props.chosenCards.includes(e.currentTarget.id)
 
     if(!alreadyChosen) {
-      const newArray = [...chosenCards]
+      const newArray = [...props.chosenCards]
       newArray.push(e.currentTarget.id)
 
-      if (newArray.length !== props.cardsQuantity) {
-        setChosenCards(newArray)
-      } else {
-        props.setGameOver(true)
-      }
+      props.setChosenCards(newArray)
+      if (newArray.length === props.cardsQuantity) props.setGameOver(true)
     } else {
       props.setGameOver(true)
     }
@@ -56,7 +65,8 @@ function CardsList(props) {
 }
 
 export default function PlayArea(props) {
-  const [cardsQuantity, setCardsQuantity] = useState(4)
+  const [cardsQuantity, setCardsQuantity] = useState(undefined)
+  const [chosenCards, setChosenCards] = useState([]);
 
   const Placeholder = []
 
@@ -64,15 +74,29 @@ export default function PlayArea(props) {
     Placeholder.push({cardId: i, imgUrl: 'https://i.imgur.com/ryWkZ8C.png', title: `card Title ${i}`})
   }
 
+  function newGame(quantity) {
+    setCardsQuantity(quantity)
+    setChosenCards([])
+    props.setGameOver(false)
+  }
+
   return (
     <div id="play-area">
       {
         props.gameOver
-        ? <DifficultMenu />
+        ? <Menu
+          cardsQuantity={cardsQuantity}
+          newGame={newGame}
+          chosenCards={chosenCards.length}
+          highScore={props.highScore}
+          setGameOver={props.setGameOver}
+          />
         : <CardsList
           setGameOver={props.setGameOver}
           cardsQuantity={cardsQuantity}
           cardsList={Placeholder}
+          chosenCards={chosenCards}
+          setChosenCards={setChosenCards}
         />
       }
     </div>
