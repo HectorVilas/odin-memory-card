@@ -136,3 +136,13 @@ This is not a big deal, but now I'm thinking with `Reach` logic, which is differ
 Now I should make the game menu where the player choses how many cards wants, and another for the game over. I think those two menues should be the same, just changing what it says (a welcome message, a "you win" and a "you lose").
 
 Once I have it ready, I can start replacing the placeholders with the API response. This time I'm gonna need `useEffect`.
+
+## update 4
+Today I made the menu and added a few dynamic elements, like the numbers of correct cards chosen, high score, a "welcome"/"you win"/"you lose" title and a few buttons with different quantities of cards to play.
+
+The code feels like a mess, I had to lift some `useState`s from cards and play area and pass them as properties to the children, and now it feels messy. I also have a `useState` that got more than one purpose (quantity of cards set to `undefined` on start to know if the game has started at least once or not), but at the same time got rid of other `useState`s, like the `isGameOver` one.
+
+I'm not completely satisfied by the mess I made, but at least the game works. I don't feel like rewriting the code, I don't want to spend so much time in the same project when it comes to just a practice, so I'll try to improve on my next project.
+
+### what's next
+With the game working, now I can start using the API to get images and text for each card, then work in the dark mode, and the game will be finished.
