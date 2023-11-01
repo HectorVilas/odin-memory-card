@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [score, setScore] = useState(0)
-  const [highScore, setHighscore] = useState(0)
+  const [highScore, setHighScore] = useState(0)
   const [darkMode, setDarkMode] = useState(false)
   const [gameOver, setGameOver] = useState(true)
   
@@ -17,8 +17,10 @@ export default function App() {
       />
       <PlayArea
         gameOver={gameOver}
+        score={score}
+        setScore={setScore}
         highScore={highScore}
-        setHighscore={setHighscore}
+        setHighScore={setHighScore}
         setDarkMode={setDarkMode}
         setGameOver={setGameOver}
       />
