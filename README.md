@@ -1,5 +1,7 @@
 # Odin Memory Card
 
+## Live: https://odin-memory-card-woad.vercel.app/
+
 Welcome to my new project! I've been using the `readme.md` files less and less on my projects, so I'm starting with this one writing on it.
 
 On this project, which is another practice from The Odin Project, I'm making a very simple memory game. The goal is to apply everything I've  learned so far about `React`, react hooks (`useState` and `useEffect`) and fetching information from an API of my choice to make sure I can handle `async` components.
