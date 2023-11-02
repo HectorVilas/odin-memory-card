@@ -18,7 +18,7 @@ export default function Header (props) {
   }, [darkTheme])
 
   return (
-    <header  className={props.darkMode ? 'dark-mode' : 'light-mode'}>
+    <header>
       <h1>Odin Memory Card</h1>
       <button className="dark-mode" onClick={toggleDarkTheme}></button>
     </header>
