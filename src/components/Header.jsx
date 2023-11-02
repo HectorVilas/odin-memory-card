@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../styles/Header.css'
 
-export default function Header (props) {
+export default function Header () {
   const [darkTheme, setDarkTheme] = useState(false)
 
   function toggleDarkTheme() {
