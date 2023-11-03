@@ -2,5 +2,8 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 100vw;
+  max-width: 1200px;
   height: 100dvh;
+  overflow: hidden;
+  box-shadow: 0 0 100px rgba(0, 0, 0, .1);
 }
