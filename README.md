@@ -148,3 +148,8 @@ I'm not completely satisfied by the mess I made, but at least the game works. I 
 
 ### what's next
 With the game working, now I can start using the API to get images and text for each card, then work in the dark mode, and the game will be finished.
+
+## update 5
+I've been removing some unnecesary values, like the `darkMode` `useState` passing as prop. I just moved the color values to `:root` as variables and made the dark mode button toggle a class on it, so now everything changes its colors without any extra lines of `CSS`. Then I've been making a few changes with the style, like limiting the maximum width to a fixed value, keep the app centered and make the cards list scrollable instead of the entire page (so header and footer are always visible, plus no horizontal scrollbar is needed).
+
+I also made the current and high score on the main menu appear only if the game has been started.
