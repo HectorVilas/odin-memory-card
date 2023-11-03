@@ -1,7 +1,24 @@
 :root {
-  background-color: rgb(210, 220, 230);
+  --color-main-1: rgb(210, 220, 230);
+  --color-main-2: rgb(220, 230, 240);
+  --color-main-3: rgb(230, 240, 250);
+  --color-bg-menu: rgba(255, 255, 255, .25);
+  --color-bg-card: none;
+  --color-txt-1: #333;
+  --color-txt-2: #444;
+}
+
+:root.dark-theme {
+  --color-main-1: rgb(40, 50, 60);
+  --color-main-2: rgb(50, 60, 70);
+  --color-main-3: rgb(60, 70, 80);
+  --color-bg-menu: rgba(0, 0, 0, .25);
+  --color-bg-card: rgba(255, 255, 255, .01);
+  --color-txt-1: #ccc;
+  --color-txt-2: #bbb;
 }
 
 body {
   margin: 0;
+  background-color: var(--color-main-1);
 }
