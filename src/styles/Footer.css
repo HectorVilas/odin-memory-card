@@ -4,6 +4,7 @@ footer {
   justify-self: end;
   text-align: end;
   padding: 4px;
+  color: var(--color-txt-2);
 }
 
 footer p {

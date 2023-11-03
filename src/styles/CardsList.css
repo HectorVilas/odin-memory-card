@@ -3,9 +3,11 @@
   box-sizing: border-box;
   width: var(--card-width);
   height: var(--card-height);
+  background-color: var(--color-bg-card);
   box-shadow: 6px 6px 24px rgba(0, 0, 0, .05);
   padding: 4px;
   justify-content: center;
+  color: var(--color-txt-1);
 }
 
 .card img {

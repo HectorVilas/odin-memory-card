@@ -2,7 +2,7 @@
   display: grid;
   grid-auto-rows: auto;
   padding: 16px;
-  background-color: rgba(255, 255, 255, .25);
+  background-color: var(--color-bg-menu);
   border-radius: 16px;
   grid-row: 1 / -1;
   text-align: center;
@@ -12,8 +12,20 @@
 #game-menu p {
   margin: 4px 16px;
 }
+
+#game-menu h2 {
+  color: var(--color-txt-1);
+}
+#game-menu p {
+  color: var(--color-txt-2);
+}
+
 #game-menu button {
   font-size: 1rem;
   padding: 4px;
   margin: 2px;
+  background-color: var(--color-main-3);
+  color: var(--color-txt-2);
+  border: 3px solid var(--color-main-1);
+  border-radius: 8px / 12px;
 }
