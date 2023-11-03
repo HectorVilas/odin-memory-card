@@ -19,6 +19,8 @@
 }
 
 body {
+  display: flex;
   margin: 0;
   background-color: var(--color-main-1);
+  justify-content: center;
 }
