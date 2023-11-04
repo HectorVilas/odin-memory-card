@@ -153,3 +153,9 @@ With the game working, now I can start using the API to get images and text for 
 I've been removing some unnecesary values, like the `darkMode` `useState` passing as prop. I just moved the color values to `:root` as variables and made the dark mode button toggle a class on it, so now everything changes its colors without any extra lines of `CSS`. Then I've been making a few changes with the style, like limiting the maximum width to a fixed value, keep the app centered and make the cards list scrollable instead of the entire page (so header and footer are always visible, plus no horizontal scrollbar is needed).
 
 I also made the current and high score on the main menu appear only if the game has been started.
+
+## update 6
+I managed to fetch info from an API with `useEffect` and used its response for the info on each card. Each time the player starts a new game this list will be randomized, so each new game have different cards.
+
+### what's next
+Now, to finish the practice, I just need to add more info on each card and style them. Right now it only shows a thumbnail (blurry, the image is smal) and a title.
