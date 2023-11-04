@@ -1,19 +1,31 @@
 import '../styles/PlayArea.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Menu from './Menu'
 import CardsList from './CardsList'
 
 export default function PlayArea(props) {
   const [cardsQuantity, setCardsQuantity] = useState(undefined)
   const [chosenCards, setChosenCards] = useState([]);
+  const [apiResponse, setApiResponse] = useState(undefined);
+  const [cardsList, setCardsList] = useState([]);
 
-  const Placeholder = []
-
-  for (let i = 0; i < cardsQuantity; i++) {
-    Placeholder.push({cardId: i, imgUrl: 'https://i.imgur.com/ryWkZ8C.png', title: `card Title ${i}`})
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15')
+      const list = await response.json()
+      setApiResponse(list)
+    }
+    fetchData()
+  }, [])
 
   function newGame(quantity) {
+    setApiResponse(apiResponse.sort(() => Math.random() - 0.5))
+    const newCardsList = []
+    for (let i = 0; i < quantity; i++) {
+      newCardsList.push(apiResponse[i])
+    }
+    setCardsList(newCardsList)
+    
     setCardsQuantity(quantity)
     setChosenCards([])
     props.setGameOver(false)
@@ -23,7 +35,9 @@ export default function PlayArea(props) {
   return (
     <div id="play-area">
       {
-        props.gameOver
+        apiResponse === undefined
+        ? <p className='fetch-para'>Fetching data...</p>
+        : props.gameOver
         ? <Menu
           cardsQuantity={cardsQuantity}
           newGame={newGame}
@@ -34,7 +48,7 @@ export default function PlayArea(props) {
           : <CardsList
           setGameOver={props.setGameOver}
           cardsQuantity={cardsQuantity}
-          cardsList={Placeholder}
+          cardsList={cardsList}
           chosenCards={chosenCards}
           setChosenCards={setChosenCards}
           score={props.score}
