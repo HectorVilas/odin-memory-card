@@ -5,7 +5,6 @@ export default function Header () {
   const [darkTheme, setDarkTheme] = useState(false)
 
   function toggleDarkTheme() {
-    console.log(darkTheme);
     setDarkTheme((theme) => !theme)
   }
 
