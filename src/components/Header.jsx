@@ -11,7 +11,7 @@ export default function Header () {
   useEffect(() => {
     const root = document.querySelector(':root')
 
-    root.classList.contains('dark-theme')
+    darkTheme === false
       ? root.classList.remove('dark-theme')
       : root.classList.add('dark-theme')
   }, [darkTheme])
