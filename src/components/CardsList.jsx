@@ -32,9 +32,9 @@ export default function CardsList(props) {
     <>
       {props.cardsList.sort(() => Math.random() - 0.5).map((item) =>
         <Card
-          key={item.cardId}
-          cardId={item.cardId}
-          imgUrl={item.imgUrl}
+          key={item.gameID}
+          cardId={item.gameID}
+          imgUrl={item.thumb}
           title={item.title}
           clickAction={clickAction}
         />
