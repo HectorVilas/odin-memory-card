@@ -19,7 +19,9 @@ export default function PlayArea(props) {
   }, [])
 
   function newGame(quantity) {
-    setApiResponse(apiResponse.sort(() => Math.random() - 0.5))
+    let shuffledCards = apiResponse;
+    for (let i = 0; i < 10; i++) shuffledCards.sort(() => Math.random() - 0.5)
+    setApiResponse(shuffledCards)
     const newCardsList = []
     for (let i = 0; i < quantity; i++) {
       newCardsList.push(apiResponse[i])
