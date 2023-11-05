@@ -1,6 +1,6 @@
 #play-area {
-  --card-width: 300px;
-  --card-height: 200px;
+  --card-width: 400px;
+  --card-height: 150px;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(var(--card-width), 1fr));
   grid-template-rows: repeat( auto-fill, minmax(var(--card-height), 1fr));
