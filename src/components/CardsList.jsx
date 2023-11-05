@@ -14,8 +14,7 @@ function Card(props) {
       <p className='card-normal-price'>${props.normalPrice}</p>
       <p className='card-sale-price'>${props.salePrice}</p>
       <p className='card-discount'>-{props.savings}%</p>
-      <p className='card-date-text'>Release date:</p>
-      <p className='card-date-release'>{months[date.getMonth()]} {date.getDay()}{indicator} {date.getFullYear()}</p>
+      <p className='card-date'><span className='card-date-text'>Release date:</span> {months[date.getMonth()]} {date.getDay()}{indicator} {date.getFullYear()}</p>
     </div>
   )
 }
