@@ -1,27 +1,27 @@
 .card {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: auto 1fr;
   grid-template-rows: repeat(5, auto);
   grid-template-areas:
-    "title title "
+    "title title"
     "image date"
     "image score"
-    "date-text full-value"
-    "date-value sale-value";
+    "discount full-value"
+    "discount sale-value";
   gap: 4px;
   box-sizing: border-box;
   width: var(--card-width);
   height: var(--card-height);
   background-color: var(--color-bg-card);
-  box-shadow: 6px 6px 24px rgba(0, 0, 0, .05);
+  box-shadow: 6px 6px 48px rgba(0, 0, 0, .15);
   padding: 4px;
   justify-content: center;
   color: var(--color-txt-1);
 }
-.card * {
+.card p {
   margin: 0;
-  padding: 0;
 }
+
 .card img {
   grid-area: image;
   width: 120px;
@@ -30,26 +30,44 @@
 
 .card h2 {
   grid-area: title;
+  margin: 0;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: rgba(0, 0, 0, .03);
 }
 
 .card-score {
   grid-area: score;
 }
 
-.card-normal-price{
+.card-normal-price {
   grid-area: full-value;
+  text-decoration: line-through 2px;
+  color: var(--color-txt-3);
+  font-size: .9rem;
 }
 
-.card-sale-price{
+.card-sale-price {
   grid-area: sale-value;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-.card-date-text{
-  grid-area: date-text;
+.card-discount {
+  grid-area: discount;
+  color: var(--color-txt-discount);
+  font-size: 2.75rem;
+  font-weight: 800;
+  text-align: end;
 }
 
-.card-date-release{
-  grid-area: date-value;
+.card-date {
+  grid-area: date;
+  color: var(--color-txt-2);
 }
 
+.card-date-text {
+  font-weight: 600;
+}
