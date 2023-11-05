@@ -11,6 +11,7 @@
 #game-menu h2,
 #game-menu p {
   margin: 4px 16px;
+  user-select: none;
 }
 
 #game-menu h2 {
@@ -28,4 +29,5 @@
   color: var(--color-txt-2);
   border: 3px solid var(--color-main-1);
   border-radius: 8px / 12px;
+  cursor: pointer;
 }

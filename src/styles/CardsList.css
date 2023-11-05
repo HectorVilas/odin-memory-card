@@ -17,9 +17,11 @@
   padding: 4px;
   justify-content: center;
   color: var(--color-txt-1);
+  cursor: pointer;
 }
 .card p {
   margin: 0;
+  user-select: none;
 }
 
 .card img {
@@ -36,6 +38,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   background-color: rgba(0, 0, 0, .03);
+  user-select: none;
 }
 
 .card-score {
