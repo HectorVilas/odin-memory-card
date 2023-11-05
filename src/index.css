@@ -8,6 +8,9 @@
   --color-txt-2: #444;
   --color-txt-3: #555;
   --color-txt-discount: green;
+  --card-score-positive: green;
+  --card-score-mixed: chocolate;
+  --card-score-negative: darkred;
 }
 
 :root.dark-theme {
@@ -20,6 +23,13 @@
   --color-txt-2: #bbb;
   --color-txt-3: #aaa;
   --color-txt-discount: limegreen;
+  --card-score-positive: limegreen;
+  --card-score-mixed: darkgoldenrod;
+  --card-score-negative: red;
+}
+
+.test {
+  color: ;
 }
 
 body {
