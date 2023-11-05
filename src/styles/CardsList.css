@@ -42,6 +42,22 @@
   grid-area: score;
 }
 
+.card-score span {
+  font-weight: 800;
+}
+
+.card-score-positive {
+  color: var(--card-score-positive);
+}
+
+.card-score-mixed {
+  color: var(--card-score-mixed);
+}
+
+.card-score-negative {
+  color: var(--card-score-negative);
+}
+
 .card-normal-price {
   grid-area: full-value;
   text-decoration: line-through 2px;
