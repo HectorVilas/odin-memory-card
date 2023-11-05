@@ -1,16 +1,27 @@
 import '../styles/CardsList.css'
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
 function Card(props) {
+  const date = new Date(props.releaseDate * 1000)
+  const indicator = date.getDay() === 1 ? 'st' : date.getDay() === 2 ? 'nd' : date.getDay() === 3 ? 'rd' : 'th'
+
   return(
     <div id={props.cardId} className='card' onClick={props.clickAction}>
       <img src={props.imgUrl} alt="" />
       <h2>{props.title}</h2>
+      <p className='card-score'>{props.steamRatingText} ({props.steamRatingPercent}% positive reviews)</p>
+      <p className='card-normal-price'>${props.normalPrice}</p>
+      <p className='card-sale-price'>${props.salePrice}</p>
+      <p className='card-discount'>-{props.savings}%</p>
+      <p className='card-date-text'>Release date:</p>
+      <p className='card-date-release'>{months[date.getMonth()]} {date.getDay()}{indicator} {date.getFullYear()}</p>
     </div>
   )
 }
 
 export default function CardsList(props) {
-  
+  console.log(props.cardsList);
   function clickAction(e) {
     const alreadyChosen = props.chosenCards.includes(e.currentTarget.id)
 
@@ -36,6 +47,12 @@ export default function CardsList(props) {
           cardId={item.gameID}
           imgUrl={item.thumb}
           title={item.title}
+          steamRatingPercent={item.steamRatingPercent}
+          steamRatingText={item.steamRatingText}
+          normalPrice={item.normalPrice}
+          salePrice={item.salePrice}
+          savings={Math.floor(item.savings)}
+          releaseDate={item.releaseDate}
           clickAction={clickAction}
         />
       )}
