@@ -6,6 +6,8 @@
   --color-bg-card: none;
   --color-txt-1: #333;
   --color-txt-2: #444;
+  --color-txt-3: #555;
+  --color-txt-discount: green;
 }
 
 :root.dark-theme {
@@ -16,6 +18,8 @@
   --color-bg-card: rgba(255, 255, 255, .01);
   --color-txt-1: #ccc;
   --color-txt-2: #bbb;
+  --color-txt-3: #aaa;
+  --color-txt-discount: limegreen;
 }
 
 body {
