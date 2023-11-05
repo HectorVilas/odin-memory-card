@@ -1,5 +1,14 @@
 .card {
   display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "title title "
+    "image date"
+    "image score"
+    "date-text full-value"
+    "date-value sale-value";
+  gap: 4px;
   box-sizing: border-box;
   width: var(--card-width);
   height: var(--card-height);
@@ -9,12 +18,38 @@
   justify-content: center;
   color: var(--color-txt-1);
 }
-
+.card * {
+  margin: 0;
+  padding: 0;
+}
 .card img {
-  width: 200px;
-  height: 100px;
+  grid-area: image;
+  width: 120px;
+  height: 45px;
 }
 
 .card h2 {
+  grid-area: title;
   text-align: center;
 }
+
+.card-score {
+  grid-area: score;
+}
+
+.card-normal-price{
+  grid-area: full-value;
+}
+
+.card-sale-price{
+  grid-area: sale-value;
+}
+
+.card-date-text{
+  grid-area: date-text;
+}
+
+.card-date-release{
+  grid-area: date-value;
+}
+
