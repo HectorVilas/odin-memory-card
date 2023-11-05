@@ -5,12 +5,13 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 function Card(props) {
   const date = new Date(props.releaseDate * 1000)
   const indicator = date.getDay() === 1 ? 'st' : date.getDay() === 2 ? 'nd' : date.getDay() === 3 ? 'rd' : 'th'
+  const score = props.steamRatingPercent >= 70 ? 'positive' : props.steamRatingPercent >= 50 ? 'mixed' : 'negative'
 
   return(
     <div id={props.cardId} className='card' onClick={props.clickAction}>
-      <img src={props.imgUrl} alt="" />
+      <img src={props.imgUrl} alt={props.title} />
       <h2>{props.title}</h2>
-      <p className='card-score'>{props.steamRatingText} ({props.steamRatingPercent}% positive reviews)</p>
+      <p className='card-score'><span className={`card-score-${score}`}>{props.steamRatingText}</span> ({props.steamRatingPercent}% positive reviews)</p>
       <p className='card-normal-price'>${props.normalPrice}</p>
       <p className='card-sale-price'>${props.salePrice}</p>
       <p className='card-discount'>-{props.savings}%</p>
