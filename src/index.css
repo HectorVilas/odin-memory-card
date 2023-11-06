@@ -34,3 +34,8 @@ body {
   background-color: var(--color-main-1);
   justify-content: center;
 }
+
+* {
+  --transition-time: 300ms;
+  transition: background-color var(--transition-time), border-color var(--transition-time), color calc(var(--transition-time) / 3);
+}
