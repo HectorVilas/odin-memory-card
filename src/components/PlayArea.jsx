@@ -8,6 +8,7 @@ export default function PlayArea(props) {
   const [chosenCards, setChosenCards] = useState([]);
   const [apiResponse, setApiResponse] = useState(undefined);
   const [cardsList, setCardsList] = useState([]);
+  const [showOffers, setShowOffers] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,13 +24,15 @@ export default function PlayArea(props) {
     for (let i = 0; i < 10; i++) shuffledCards.sort(() => Math.random() - 0.5)
     setApiResponse(shuffledCards)
     const newCardsList = []
-    for (let i = 0; i < quantity; i++) {
+    const newQuantity = quantity !== undefined ? quantity : apiResponse.length
+    for (let i = 0; i < newQuantity; i++) {
       newCardsList.push(apiResponse[i])
     }
     setCardsList(newCardsList)
     
     setCardsQuantity(quantity)
     setChosenCards([])
+    setShowOffers(quantity === undefined)
     props.setGameOver(false)
     props.setScore(0)
   }
@@ -57,6 +60,7 @@ export default function PlayArea(props) {
           setScore={props.setScore}
           highScore={props.highScore}
           setHighScore={props.setHighScore}
+          showOffers={showOffers}
         />
       }
     </div>
