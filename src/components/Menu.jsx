@@ -17,6 +17,7 @@ export default function Menu(props) {
           return <button onClick={() => props.newGame(quantity)} key={quantity}>{quantity} cards</button>
         })
       }
+      <button onClick={() => props.newGame()} key='show-offers'>Just show the offers</button>
     </div>
   )
 }
