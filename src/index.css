@@ -28,10 +28,6 @@
   --card-score-negative: red;
 }
 
-.test {
-  color: ;
-}
-
 body {
   display: flex;
   margin: 0;
