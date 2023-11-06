@@ -21,7 +21,6 @@ function Card(props) {
 }
 
 export default function CardsList(props) {
-  console.log(props.cardsList);
   function clickAction(e) {
     const alreadyChosen = props.chosenCards.includes(e.currentTarget.id)
 
