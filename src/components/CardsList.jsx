@@ -22,6 +22,7 @@ function Card(props) {
 
 export default function CardsList(props) {
   function clickAction(e) {
+    if (props.showOffers) return
     const alreadyChosen = props.chosenCards.includes(e.currentTarget.id)
 
     if(!alreadyChosen) {
@@ -52,9 +53,10 @@ export default function CardsList(props) {
           salePrice={item.salePrice}
           savings={Math.floor(item.savings)}
           releaseDate={item.releaseDate}
-          clickAction={clickAction}
+          clickAction={!props.showOffers ? clickAction : () => window.open(`https://www.cheapshark.com/redirect?dealID=${item.dealID}`)}
         />
       )}
+      {props.showOffers && <button className='btn-back-to-menu' onClick={() => props.setGameOver(true)}>Go back to main menu</button>}
     </>
   )
 }
