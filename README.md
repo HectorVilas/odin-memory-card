@@ -159,3 +159,27 @@ I managed to fetch info from an API with `useEffect` and used its response for t
 
 ### what's next
 Now, to finish the practice, I just need to add more info on each card and style them. Right now it only shows a thumbnail (blurry, the image is smal) and a title.
+
+## update 7
+The cards have been designed, now it shows more info for each item, and the colors had been adjusted for dark mode too:
+
+![](https://i.imgur.com/8YplDLa.gif)
+
+And now there's an extra button at the end of the menu, which lists all the offers received from the API and, instead of acting like a memory card game, each card links to its respective store webpage:
+
+![](https://i.imgur.com/jIJF2bv.png)
+
+I also made the theme toggle button animated:
+
+![](https://i.imgur.com/L3Ly4eh.gif)
+
+And a bunch of other additions and changes on the code, but nothing worth to comment here.
+
+So here's how the page looks while playing or listing all the offers:
+
+![](https://i.imgur.com/iVmDqfF.png)
+
+### final thoughts
+This project has been interesting, very basic, but I learned a little more from it. I can finally understand `useEffect`, when should I use it and when should I list dependencies as second argument. I didn't needed any cleanup (it stops connections, intervals, etc), but I think I already understood that part.
+
+So this is it! I left some planning outside of the project but I want to move to the next lesson. See you in my next project!
