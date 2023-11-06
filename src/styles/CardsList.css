@@ -92,11 +92,13 @@
 }
 
 .btn-back-to-menu {
-  font-size: 1rem;
-  padding: 6px 12px;
+  font-size: 1.25rem;
+  margin-top: 16px;
+  padding: 8px 16px;
   background-color: var(--color-main-3);
   color: var(--color-txt-1);
   border: 3px solid var(--color-main-1);
   border-radius: 8px / 12px;
   cursor: pointer;
+  grid-column: 1 / -1;
 }
